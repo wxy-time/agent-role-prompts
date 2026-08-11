@@ -4,6 +4,8 @@
 
 A collection of standalone role prompts for Multica and Codex-style coding agents. The prompts turn software tasks into a traceable, verifiable, and safely integrable maintenance workflow.
 
+[公开示例 / Public examples](examples/README.md) · [协议评估 / Protocol evaluation](EVALUATION.md) · [贡献指南 / Contributing](CONTRIBUTING.md) · [变更记录 / Changelog](CHANGELOG.md)
+
 > 本项目是独立社区项目，不代表 OpenAI、Codex 或 Multica 的官方实现。
 >
 > This is an independent community project and is not an official implementation of OpenAI, Codex, or Multica.
@@ -139,11 +141,23 @@ Confirm that the response contains:
 - When QR login, MFA, CAPTCHA, real accounts, or production permissions are unavailable, preserve a checkpoint and mark the external block explicitly.
 - When the same root cause is shared, fix the shared entry point once instead of adding repeated guards to every caller.
 
+公开示例全部使用合成数据并明确标注。仓库的自动检查会拦截常见密钥、邮箱和本机绝对路径模式：
+
+All public examples use explicitly labeled synthetic data. The automated check rejects common secret, email, and local absolute-path patterns:
+
+```bash
+bash scripts/validate.sh
+```
+
+当前公开评估包含 6 个合成场景，每个验证级别 2 个。其 `PASS` 只表示静态协议覆盖，不表示模型已执行、生产已部署或外部用户已采用。详情见 [EVALUATION.md](EVALUATION.md)。
+
+The current public evaluation contains six synthetic scenarios, two per verification profile. `PASS` indicates static protocol coverage only; it does not claim model execution, production deployment, or external adoption. See [EVALUATION.md](EVALUATION.md).
+
 ## 贡献 | Contributing
 
-欢迎提交 Issue 或 Pull Request。角色提示词必须保持单文件可运行，不应引入对隐藏公共文件的依赖；新增规则应说明它解决的失败模式，并附最小可复现证据或示例。修改后请检查 Markdown 代码围栏、链接和双语内容是否同步。
+欢迎提交 Issue 或 Pull Request。角色提示词必须保持单文件可运行，不应引入对隐藏公共文件的依赖；新增规则应说明它解决的失败模式，并附最小可复现证据或合成示例。提交前请遵循 [CONTRIBUTING.md](CONTRIBUTING.md) 的隐私检查。
 
-Issues and pull requests are welcome. Each role prompt must remain runnable as a standalone file and must not depend on a hidden shared file. New rules should identify the failure mode they address and include the smallest reproducible evidence or example. After editing, check Markdown fences, links, and bilingual sections for consistency.
+Issues and pull requests are welcome. Each role prompt must remain runnable as a standalone file and must not depend on a hidden shared file. New rules should identify the failure mode they address and include the smallest reproducible evidence or synthetic example. Follow the privacy checks in [CONTRIBUTING.md](CONTRIBUTING.md) before submitting.
 
 ## 许可证 | License
 
