@@ -1,6 +1,6 @@
 # Agent Role Prompts
 
-[简体中文](../zh-CN/README.md)
+[简体中文](../../README.md)
 
 A collection of standalone role prompts for Multica and Codex-style coding agents. The prompts turn software tasks into a traceable, verifiable, and safely integrable maintenance workflow.
 

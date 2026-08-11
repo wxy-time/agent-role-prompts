@@ -10,7 +10,7 @@ role_files=(
 )
 
 documentation_files=(
-  "docs/zh-CN/README.md"
+  "README.md"
   "docs/zh-CN/EXAMPLES.md"
   "docs/zh-CN/EVALUATION.md"
   "docs/zh-CN/CONTRIBUTING.md"
