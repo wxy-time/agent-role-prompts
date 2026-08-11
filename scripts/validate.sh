@@ -9,6 +9,19 @@ role_files=(
   "05-代码与功能验收者.md"
 )
 
+documentation_files=(
+  "docs/zh-CN/README.md"
+  "docs/zh-CN/EXAMPLES.md"
+  "docs/zh-CN/EVALUATION.md"
+  "docs/zh-CN/CONTRIBUTING.md"
+  "docs/zh-CN/CHANGELOG.md"
+  "docs/en/README.md"
+  "docs/en/EXAMPLES.md"
+  "docs/en/EVALUATION.md"
+  "docs/en/CONTRIBUTING.md"
+  "docs/en/CHANGELOG.md"
+)
+
 for file in "${role_files[@]}"; do
   test -f "$file"
   grep -q 'role_result' "$file"
@@ -16,6 +29,10 @@ for file in "${role_files[@]}"; do
   grep -q 'FAST' "$file"
   grep -q 'STANDARD' "$file"
   grep -q 'FULL' "$file"
+done
+
+for file in "${documentation_files[@]}"; do
+  test -f "$file"
 done
 
 grep -q 'identity_contract_matrix' "02-实施计划编写者.md"
@@ -33,12 +50,6 @@ while IFS= read -r file; do
   fi
 done < <(find . -type f -name '*.md' -not -path './.git/*' -print)
 
-privacy_pattern='(/Users/|/home/[A-Za-z0-9._-]+/|[A-Za-z]:\\Users\\|sk-[A-Za-z0-9_-]{10,}|gh[pousr]_[A-Za-z0-9]{20,}|AKIA[0-9A-Z]{16}|-----BEGIN (RSA |OPENSSH |EC )?PRIVATE KEY-----|[A-Za-z0-9._%+-]+@[A-Za-z0-9.-]+\.[A-Za-z]{2,})'
-
-if find . -type f \( -name '*.md' -o -name '*.yml' -o -name '*.yaml' \) -not -path './.git/*' -print0 \
-  | xargs -0 grep -nEI "$privacy_pattern"; then
-  echo 'Potential private data found in public artifacts.' >&2
-  exit 1
-fi
+bash scripts/audit-privacy.sh
 
 echo 'Public artifact validation passed.'
