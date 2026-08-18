@@ -29,6 +29,7 @@ for file in "${role_files[@]}"; do
   grep -q 'FAST' "$file"
   grep -q 'STANDARD' "$file"
   grep -q 'FULL' "$file"
+  grep -q 'AI_TEST_ENVIRONMENT.md' "$file"
 done
 
 for file in "${documentation_files[@]}"; do
