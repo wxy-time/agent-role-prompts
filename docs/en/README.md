@@ -17,6 +17,7 @@ AI can generate code, but open-source maintenance also needs clear scope, plan r
 - Five complete, standalone Markdown role prompts.
 - Three verification profiles: `FAST`, `STANDARD`, and `FULL`.
 - Handoff rules for remote branches, immutable commit SHAs, and candidate-to-integration verification.
+- A single acceptance round by default: candidate acceptance, then scheduler-side mechanical integration checks, with an extra integration acceptance only for non-trivial merges.
 - Failure routing for plan, implementation, environment, external authorization, and integration failures.
 - Explicit boundaries for QR login, MFA, CAPTCHA, real accounts, and production permissions.
 - No runtime dependencies; each prompt can be copied into a tool that supports independent agent instructions.

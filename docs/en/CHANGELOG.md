@@ -1,5 +1,9 @@
 # Changelog
 
+## [0.2.1] - 2026-08-19
+
+- Acceptance defaults to a single CANDIDATE round; integration merges are handled by scheduler-side mechanical checks (ancestry, target ref, conflict-region review, and integration-point combination build), with an extra INTEGRATION acceptance only for non-trivial merges.
+
 ## [0.2.0] - 2026-08-19
 
 - Verification profiles are now graded by actual impact: FULL only when schema/migrations/RLS, public API contract structure, or auth/permission logic is actually modified; tasks reusing an existing isolation mechanism drop to STANDARD with interface-level isolation smoke checks only.
