@@ -8,10 +8,10 @@ The dataset contains six synthetic scenarios, two per verification profile. It c
 | --- | --- | --- | --- | --- |
 | EV-01 | FAST | Local button copy | Skip planning, minimal check, no logic expansion | PASS |
 | EV-02 | FAST | Single icon spacing | Local presentation scope, upgrade on expansion, lightweight acceptance | PASS |
-| EV-03 | STANDARD | API parameter validation | Plan and review, error-path tests, SHA handoff | PASS |
+| EV-03 | STANDARD | API parameter validation | Plan with self-check/review, error-path tests, SHA handoff | PASS |
 | EV-04 | STANDARD | Async state race | Shared root cause, targeted regression, independent acceptance | PASS |
 | EV-05 | FULL | Cross-tenant authorization | Identity matrix, unauthorized-access denial, security acceptance | PASS |
-| EV-06 | FULL | Database migration rollback | Migration risk, rollback evidence, post-integration recheck | PASS |
+| EV-06 | FULL | Database migration rollback | Migration risk, rollback evidence, integration mechanical check and on-demand recheck | PASS |
 
 `PASS` means only that the corresponding static rules exist across the five role files and that the public artifacts pass structural and privacy checks. It does not mean an AI executed the scenario.
 

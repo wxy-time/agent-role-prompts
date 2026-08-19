@@ -1,5 +1,10 @@
 # Changelog
 
+## [0.2.2] - 2026-08-19
+
+- Small single-unit STANDARD tasks can skip the independent plan review; the scheduler checks the plan before dispatch, while high-risk changes such as FULL, multi-unit splits, public contracts, migrations, and money-related flows keep the review.
+- identity_contract_matrix is required for FULL tasks only; STANDARD tasks reusing an existing isolation mechanism just write interface-level isolation smoke assertions.
+
 ## [0.2.1] - 2026-08-19
 
 - Acceptance defaults to a single CANDIDATE round; integration merges are handled by scheduler-side mechanical checks (ancestry, target ref, conflict-region review, and integration-point combination build), with an extra INTEGRATION acceptance only for non-trivial merges.
