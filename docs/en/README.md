@@ -47,8 +47,10 @@ Scheduler
 ## Verification profiles
 
 - `FAST`: local copy, a single icon, color, spacing, or other display-only changes.
-- `STANDARD`: normal components, pages, forms, state, API calls, and business logic.
-- `FULL`: authentication, permissions, migrations, security, public contracts, or core cross-module flows.
+- `STANDARD`: normal components, pages, forms, state, API calls, and business logic. Changes that reuse an existing isolation mechanism only need interface-level isolation smoke checks.
+- `FULL`: changes that actually modify database schema/migrations/RLS, public API contract structure, or auth/permission logic, plus money or core cross-module flows.
+
+Builds and regression runs are scoped to the affected packages including their reverse-dependency closure; a full repository-wide build runs once at the integration point.
 
 ## Usage
 
