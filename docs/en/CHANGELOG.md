@@ -1,5 +1,12 @@
 # Changelog
 
+## [0.2.3] - 2026-08-19
+
+- Extended run reconciliation: when a child Issue has no active run and no valid result protocol, only a cancelled run or a missing run record is auto-rerun once; other states fail safe and are escalated to a human instead of waiting indefinitely.
+- METADATA_PERSIST_FAILED emergency release protocol: when a child ends with that marker and its comment carries the original conclusion and direct evidence, the scheduler routes directly from the comment instead of mechanically retrying it as a missing-field case, without consuming the retry budget.
+- Environment retry guard: before retrying RETRYABLE_FAILURE / environment, verify environment-readiness evidence; unchanged evidence fails safe immediately.
+- Integration conflict convergence cap: the same integration conflict redone twice still fails safe, handing merge decisions that touch other people's changes to a human.
+
 ## [0.2.2] - 2026-08-19
 
 - Small single-unit STANDARD tasks can skip the independent plan review; the scheduler checks the plan before dispatch, while high-risk changes such as FULL, multi-unit splits, public contracts, migrations, and money-related flows keep the review.
